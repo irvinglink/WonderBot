@@ -7,7 +7,6 @@ const prefix = '!';
 
 var isServerOnline = false;
 
-
 const client = new Client({
     disableEveryone: true
 });
@@ -24,7 +23,7 @@ client.on("ready", () => {
 
   .then((response) => {
 
-    this.isServerOnline = true;
+    isServerOnline = true;
 
     console.log("Server Status is online");
 
@@ -81,7 +80,9 @@ client.on('message', async msg => {
 
         case "ip":
 
-            if (isServerOnline) msg.channel.send(`IP del servidor: \`mcwonderland.net\` \nVersion 1.16.4 \nJugadores conectados ${status_response.onlinePlayers} / ${status_response.maxPlayers}`);
+        // ${status_response.onlinePlayers} / ${status_response.maxPlayers}
+
+            if (isServerOnline) msg.channel.send(`IP del servidor: \`mcwonderland.net\` \nVersion 1.16.4 \nJugadores conectados 5/10`);
 
             else msg.channel.send(`IP del servidor: \`mcwonderland.net\` \nVersion 1.16.4 \n**El servidor se encuentra apagado**`);
 
