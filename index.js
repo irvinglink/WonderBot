@@ -11,7 +11,7 @@ const client = new Client({
 
 
 var isServerOnline = false;
-var status_response;
+var status_response = util.status('mcwonderland.net', { port: 25556, enableSRV: true, timeout: 5000, protocolVersion: 47 });
 
 
 config({
@@ -22,13 +22,10 @@ client.on("ready", () => {
 
   console.log("WonderBot ha sido invocado!");
 
-  util.status('mcwonderland.net', { port: 25556, enableSRV: true, timeout: 5000, protocolVersion: 47 })
-    .then((response) => {
 
-        this.status_response = response;
+    status_response.then((response) => {
 
         isServerOnline = true;
-        console.log(`Players online: ${response.onlinePlayers} / ${response.maxPlayers}`);
 
     })
     .catch((error) => {
@@ -41,7 +38,7 @@ client.on("ready", () => {
   if (isServerOnline) {
 
     client.user.setPresence({
-        activity: { name: "Entra a mcwonderland.net", type: "PLAYING" },
+        activity: { name: "mcwonderland.net", type: "PLAYING" },
 
         status: "online",
       });
@@ -49,7 +46,7 @@ client.on("ready", () => {
   } else {
 
     client.user.setPresence({
-        activity: { name: "Entra a mcwonderland.net", type: "PLAYING" },
+        activity: { name: "mcwonderland.net", type: "PLAYING" },
 
         status: "dnd",
       });
@@ -73,9 +70,12 @@ client.on('message', async msg => {
     switch (cmd) {
 
         case "ip":
-            if (isServerOnline) msg.channel.send(`IP del servidor: \`mcwonderland.net\` \nVersion 1.16.4 \n Jugadores conectados ${status_response.onlinePlayers} / ${status_response.maxPlayers}`);
 
-            else msg.channel.send(`IP del servidor: \`mcwonderland.net\` \nVersion 1.16.4 \nEl servidor se encuentra **apagado**`);
+            if (isServerOnline) msg.channel.send(`IP del servidor: \`mcwonderland.net\` \nVersion 1.16.4
+
+            \n Jugadores conectados ${status_response.onlinePlayers} / ${status_response.maxPlayers}`);
+
+            else msg.channel.send(`IP del servidor: \`mcwonderland.net\` \nVersion 1.16.4 \n**El servidor se encuentra apagado**`);
 
             break;
 
