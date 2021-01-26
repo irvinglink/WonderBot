@@ -26,14 +26,14 @@ client.on("ready", () => {
 
   .then((response) => {
 
-    isServerOnline = true;
+    this.isServerOnline = true;
 
     console.log("Server Status is online");
   })
 
     .catch((error) => {
 
-        isServerOnline = false;
+        this.isServerOnline = false;
         console.log("Server Status is offline");
 
         throw error;
