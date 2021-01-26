@@ -11,7 +11,6 @@ const client = new Client({
 
 
 var isServerOnline = false;
-var status_response = util.status('mcwonderland.net', { port: 25556, enableSRV: true, timeout: 5000, protocolVersion: 47 });
 
 
 config({
@@ -23,11 +22,10 @@ client.on("ready", () => {
   console.log("WonderBot ha sido invocado!");
 
 
-    status_response.then((response) => {
-
-        isServerOnline = true;
-
-    })
+  util.status('mcwonderland.net', { port: 25556, enableSRV: true, timeout: 5000, protocolVersion: 47 })
+  .then((response) => {
+    isServerOnline = true;
+  })
     .catch((error) => {
         isServerOnline = false;
         throw error;
