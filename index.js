@@ -1,5 +1,7 @@
 const { Client } = require("discord.js");
-const {config} = require("dotenv");
+const { config } = require("dotenv");
+
+const { util } = require("minecraft-server-util");
 
 const prefix = '!';
 
@@ -11,11 +13,22 @@ config({
     path: __dirname + "/.env"
 });
 
-client.on('ready', () => {
+client.on("ready", () => {
 
-    console.log("WonderBot ha sido invocado!");
+  console.log("WonderBot ha sido invocado!");
 
-    client.user.setPresence({ activity: { name: 'in mcwonderland.net', type: "PLAYING" }, status:"online" });
+  util.status('mcwonderland.net', { port: 25556, enableSRV: true, timeout: 5000, protocolVersion: 47 })
+    .then((response) => {
+        console.log(response);
+    })
+    .catch((error) => {
+        throw error;
+    });
+
+  client.user.setPresence({
+    activity: { name: "in mcwonderland.net", type: "PLAYING" },
+    status: "online",
+  });
 
 });
 
@@ -36,6 +49,7 @@ client.on('message', async msg => {
         case "ip":
             msg.channel.send("IP del servidor: `mcwonderland.net` \nVersion 1.16.4");
             break;
+
     }
 
 
