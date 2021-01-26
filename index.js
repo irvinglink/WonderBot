@@ -67,7 +67,7 @@ client.on('message', async msg => {
 
         case "ip":
 
-            if (isServerOnline) msg.channel.send(`\```txt IP del servidor: mcwonderland.net \nVersion 1.16.4 \nJugadores conectados ${status_response.onlinePlayers} / ${status_response.maxPlayers}\````);
+            if (isServerOnline) msg.channel.send(`IP del servidor: \`mcwonderland.net\` \nVersion 1.16.4 \nJugadores conectados ${status_response.onlinePlayers} / ${status_response.maxPlayers}`);
 
             else msg.channel.send(`IP del servidor: \`mcwonderland.net\` \nVersion 1.16.4 \n**El servidor se encuentra apagado**`);
 
