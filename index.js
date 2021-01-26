@@ -1,7 +1,7 @@
 const { Client } = require("discord.js");
 const { config } = require("dotenv");
 
-const { util } = require("minecraft-server-util");
+const util = require('minecraft-server-util');
 
 const prefix = '!';
 
@@ -17,7 +17,7 @@ client.on("ready", () => {
 
   console.log("WonderBot ha sido invocado!");
 
-  util.status('mcwonderland.net', { port: 25556, enableSRV: true, timeout: 5000, protocolVersion: 47 })
+  util.status('mcwonderland.net', { port: 25556, enableSRV: true, timeout: 5000, protocolVersion: 47 }) // These are the default options
     .then((response) => {
         console.log(response);
     })
