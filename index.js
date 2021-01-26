@@ -79,6 +79,9 @@ client.on('message', async msg => {
 
             break;
 
+        case "tienda":
+            console.log(msg.author.displayAvatarURL().link());
+            break;
     }
 
 
