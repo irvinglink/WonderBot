@@ -47,6 +47,8 @@ client.on("ready", () => {
         status: "online",
       });
 
+      console.log("Is Online");
+
   } else {
 
     client.user.setPresence({
