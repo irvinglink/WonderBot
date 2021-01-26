@@ -68,11 +68,12 @@ client.on('message', async msg => {
             .then((response) => {
 
               isServerOnline = true;
-              msg.channel.send(`IP del servidor: \`mcwonderland.net\` \nVersion 1.16.4 \nJugadores conectados ${status_response.onlinePlayers} / ${status_response.maxPlayers}`);
+              msg.channel.send(`IP del servidor: \`mcwonderland.net\` \nVersion 1.16.4 \nJugadores conectados ${response.onlinePlayers} / ${response.maxPlayers}`);
 
             }).catch((error) => {
                 isServerOnline = false;
                 msg.channel.send(`IP del servidor: \`mcwonderland.net\` \nVersion 1.16.4 \n**El servidor se encuentra apagado**`);
+                throw error;
             });
 
 
