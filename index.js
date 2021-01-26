@@ -7,6 +7,8 @@ const prefix = '!';
 
 var isServerOnline = false;
 
+var status_response = undefined;
+
 const client = new Client({
     disableEveryone: true
 });
@@ -25,41 +27,26 @@ client.on("ready", () => {
 
     isServerOnline = true;
 
+    status_response = response;
+
     console.log("Server Status is online");
 
-  })
+  }).catch((error) => {
 
-    .catch((error) => {
+    console.log("Server Status is offline");
+    throw error;
 
-        console.log("Server Status is offline");
-
-        throw error;
-
-    });
-
-
-    console.log(isServerOnline);
+  });
 
     console.log("WonderBot ha sido invocado!");
 
-    if (isServerOnline) {
+    client.user.setPresence({
 
-        client.user.setPresence({
-            activity: { name: "mcwonderland.net", type: "PLAYING" },
+        activity: { name: "mcwonderland.net", type: "PLAYING" },
 
-            status: "online",
+        status: "online",
 
-        });
-
-    } else {
-
-        client.user.setPresence({
-            activity: { name: "mcwonderland.net", type: "PLAYING" },
-
-            status: "dnd",
-        });
-
-    }
+    });
 
 
 });
@@ -80,9 +67,8 @@ client.on('message', async msg => {
 
         case "ip":
 
-        // ${status_response.onlinePlayers} / ${status_response.maxPlayers}
-
-            if (isServerOnline) msg.channel.send(`IP del servidor: \`mcwonderland.net\` \nVersion 1.16.4 \nJugadores conectados 5/10`);
+            if (isServerOnline) msg.channel.send(`\`IP del servidor: mcwonderland.net \nVersion 1.16.4
+            \nJugadores conectados ${status_response.onlinePlayers} / ${status_response.maxPlayers}\``);
 
             else msg.channel.send(`IP del servidor: \`mcwonderland.net\` \nVersion 1.16.4 \n**El servidor se encuentra apagado**`);
 
