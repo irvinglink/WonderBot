@@ -24,6 +24,9 @@ client.on("ready", () => {
     .then((response) => {
         isServerOnline = true;
         console.log(response);
+
+        console.log(`Players online: ${response.onlinePlayers} / ${response.maxPlayers}`);
+
     })
     .catch((error) => {
         isServerOnline = false;
