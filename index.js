@@ -5,12 +5,12 @@ const util = require('minecraft-server-util');
 
 const prefix = '!';
 
+var isServerOnline = false;
+
+
 const client = new Client({
     disableEveryone: true
 });
-
-
-var isServerOnline = false;
 
 
 config({
@@ -26,13 +26,14 @@ client.on("ready", () => {
 
   .then((response) => {
 
-    this.isServerOnline = true;
+    isServerOnline = true;
 
+    console.log("Server Status is " + isServerOnline);
   })
 
     .catch((error) => {
 
-        this.isServerOnline = false;
+        isServerOnline = false;
         throw error;
 
     });
@@ -46,8 +47,6 @@ client.on("ready", () => {
 
         status: "online",
       });
-
-      console.log("Is Online");
 
   } else {
 
