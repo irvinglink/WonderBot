@@ -42,5 +42,5 @@ client.on('message', async msg => {
 });
 
 
-client.login(process.env.TOKEN);
+client.login(process.env.DJS_TOKEN);
 
