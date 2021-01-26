@@ -19,8 +19,6 @@ config({
 
 client.on("ready", () => {
 
-  console.log("WonderBot ha sido invocado!");
-
 
   util.status('mcwonderland.net', { port: 25556, enableSRV: true, timeout: 5000, protocolVersion: 47 })
 
@@ -29,11 +27,11 @@ client.on("ready", () => {
     this.isServerOnline = true;
 
     console.log("Server Status is online");
+
   })
 
     .catch((error) => {
 
-        this.isServerOnline = false;
         console.log("Server Status is offline");
 
         throw error;
@@ -43,12 +41,15 @@ client.on("ready", () => {
 
     console.log(isServerOnline);
 
+    console.log("WonderBot ha sido invocado!");
+
     if (isServerOnline) {
 
         client.user.setPresence({
             activity: { name: "mcwonderland.net", type: "PLAYING" },
 
             status: "online",
+
         });
 
     } else {
@@ -60,6 +61,7 @@ client.on("ready", () => {
         });
 
     }
+
 
 });
 
