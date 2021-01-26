@@ -28,35 +28,38 @@ client.on("ready", () => {
 
     isServerOnline = true;
 
-    console.log("Server Status is " + isServerOnline);
+    console.log("Server Status is online");
   })
 
     .catch((error) => {
 
         isServerOnline = false;
+        console.log("Server Status is offline");
+
         throw error;
 
     });
 
 
+    console.log(isServerOnline);
 
-  if (isServerOnline) {
+    if (isServerOnline) {
 
-    client.user.setPresence({
-        activity: { name: "mcwonderland.net", type: "PLAYING" },
+        client.user.setPresence({
+            activity: { name: "mcwonderland.net", type: "PLAYING" },
 
-        status: "online",
-      });
+            status: "online",
+        });
 
-  } else {
+    } else {
 
-    client.user.setPresence({
-        activity: { name: "mcwonderland.net", type: "PLAYING" },
+        client.user.setPresence({
+            activity: { name: "mcwonderland.net", type: "PLAYING" },
 
-        status: "dnd",
-      });
+            status: "dnd",
+        });
 
-  }
+    }
 
 });
 
