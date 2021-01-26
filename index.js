@@ -26,13 +26,13 @@ client.on("ready", () => {
 
   .then((response) => {
 
-    var isServerOnline = true;
+    this.isServerOnline = true;
 
   })
 
     .catch((error) => {
 
-        var isServerOnline = false;
+        this.isServerOnline = false;
         throw error;
 
     });
