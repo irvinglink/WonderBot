@@ -9,6 +9,9 @@ const client = new Client({
     disableEveryone: true
 });
 
+
+var isServerOnline = false;
+
 config({
     path: __dirname + "/.env"
 });
@@ -17,18 +20,35 @@ client.on("ready", () => {
 
   console.log("WonderBot ha sido invocado!");
 
-  util.status('mcwonderland.net', { port: 25556, enableSRV: true, timeout: 5000, protocolVersion: 47 }) // These are the default options
+  util.status('mcwonderland.net', { port: 25556, enableSRV: true, timeout: 5000, protocolVersion: 47 })
     .then((response) => {
+        isServerOnline = true;
         console.log(response);
     })
     .catch((error) => {
+        isServerOnline = false;
         throw error;
     });
 
-  client.user.setPresence({
-    activity: { name: "in mcwonderland.net", type: "PLAYING" },
-    status: "online",
-  });
+
+
+  if (isServerOnline) {
+
+    client.user.setPresence({
+        activity: { name: "in mcwonderland.net", type: "PLAYING" },
+
+        status: "online",
+      });
+
+  } else {
+
+    client.user.setPresence({
+        activity: { name: "in mcwonderland.net", type: "PLAYING" },
+
+        status: "dnd",
+      });
+
+  }
 
 });
 
