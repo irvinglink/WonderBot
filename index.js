@@ -1,7 +1,8 @@
 const { Client } = require("discord.js");
 const { config } = require("dotenv");
-
 const util = require('minecraft-server-util');
+
+import {shop_Message} from './elements/messages.js';
 
 const prefix = '!';
 
@@ -80,8 +81,8 @@ client.on('message', async msg => {
             break;
 
         case "tienda":
-            console.log(msg.author.displayAvatarURL().link());
-            break;
+          msg.channel.send(shop_Message());
+          break;
     }
 
 
