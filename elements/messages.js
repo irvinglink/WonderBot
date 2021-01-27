@@ -1,9 +1,9 @@
 const discord = require("discord.js");
 
-export function shop_message() {
+export const msg = () => {
+    return "Test"
+};
 
-    return "test";
-}
 /*
 function shop_message() {
 
