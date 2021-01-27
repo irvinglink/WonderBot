@@ -1,4 +1,4 @@
-const { Client } = require("discord.js");
+const { Client, MessageEmbed } = require("discord.js");
 const { config } = require("dotenv");
 const util = require('minecraft-server-util');
 
@@ -82,7 +82,7 @@ client.on('message', async msg => {
 
         case "tienda":
 
-        const shop_msg = new discord.MessageEmbed()
+        const shop_msg = new MessageEmbed()
         .setColor("#6DD5FA")
         .setTitle("MCWonderLand")
         .setAuthor("MCWonderLand")
