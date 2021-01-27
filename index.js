@@ -85,7 +85,7 @@ client.on('message', async msg => {
         const shop_msg = new MessageEmbed()
         .setColor("#6DD5FA")
         .setTitle("MCWonderLand")
-        .setAuthor("Tienda", msg.author.defaultAvatarURL())
+        .setAuthor("Tienda", msg.author.avatarURL())
         .setDescription("Nosotros contamos con una tienda donde puedes adquirir rangos, o beneficios dentro del servidor.")
         .addField("Pagina", "https://mcwonderland.tebex.io");
 
