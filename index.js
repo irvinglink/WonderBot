@@ -2,7 +2,7 @@ const { Client } = require("discord.js");
 const { config } = require("dotenv");
 const util = require('minecraft-server-util');
 
-import {shop_Message} from './elements/messages.js';
+const {shop_Message} = require('./elements/messages.js');
 
 const prefix = '!';
 
