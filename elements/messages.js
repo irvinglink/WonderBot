@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 
-export function shop_message() {
+function shop_message() {
 
     return new discord.MessageEmbed()
     .setColor("#6DD5FA")
@@ -10,3 +10,5 @@ export function shop_message() {
     .addField("Pagina", "https://mcwonderland.tebex.io");;
 
 }
+
+export { shop_message };
