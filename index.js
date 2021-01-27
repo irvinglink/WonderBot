@@ -81,7 +81,16 @@ client.on('message', async msg => {
             break;
 
         case "tienda":
-          msg.channel.send(msg_s());
+
+        const shop_msg = new discord.MessageEmbed()
+        .setColor("#6DD5FA")
+        .setTitle("MCWonderLand")
+        .setAuthor("MCWonderLand")
+        .setDescription("Nosotros contamos con una tienda donde puedes adquirir rangos, o beneficios dentro del servidor.")
+        .addField("Pagina", "https://mcwonderland.tebex.io");
+
+          msg.channel.send(shop_msg);
+
           break;
     }
 
