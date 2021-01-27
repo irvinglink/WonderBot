@@ -2,7 +2,7 @@ const { Client } = require("discord.js");
 const { config } = require("dotenv");
 const util = require('minecraft-server-util');
 
-const {msg} = require('./elements/messages.js');
+const {msg_s} = require('./elements/messages.js');
 
 const prefix = '!';
 
@@ -81,7 +81,7 @@ client.on('message', async msg => {
             break;
 
         case "tienda":
-          msg.channel.send(msg());
+          msg.channel.send(msg_s());
           break;
     }
 

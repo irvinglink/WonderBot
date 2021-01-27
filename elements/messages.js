@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 
-export const msg = () => {
+export const msg_s = () => {
     return "Test"
 };
 
