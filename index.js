@@ -64,7 +64,7 @@ client.on('message', async msg => {
 
         case "ip":
 
-            util.status('mcwonderland.net', { port: 25556, enableSRV: true, timeout: 5000, protocolVersion: 47 })
+              util.status('mcwonderland.net', { port: 25556, enableSRV: true, timeout: 5000, protocolVersion: 47 })
 
             .then((response) => {
 
@@ -77,21 +77,46 @@ client.on('message', async msg => {
                 throw error;
             });
 
-
             break;
 
         case "tienda":
 
         const shop_msg = new MessageEmbed()
-        .setColor("#6DD5FA")
-        .setTitle("MCWonderLand")
-        .setAuthor("Tienda", client.user.avatarURL(), "http://tienda.mcwonderland.net/")
-        .setDescription("Nosotros contamos con una tienda donde puedes adquirir rangos, o beneficios dentro del servidor.")
-        .addField("Pagina", "http://tienda.mcwonderland.net/");
+          .setColor("#6DD5FA")
+          .setTitle("MCWonderLand")
+          .setAuthor(
+            "Tienda",
+            client.user.avatarURL(),
+            "http://tienda.mcwonderland.net/"
+          )
+          .setDescription(
+            "Nosotros contamos con una tienda donde puedes adquirir rangos, o beneficios dentro del servidor."
+          )
+          .addField("Pagina", "http://tienda.mcwonderland.net/");
 
           msg.channel.send(shop_msg);
 
           break;
+
+          case "voto":
+          case "votar":
+
+            const shop_msg = new MessageEmbed()
+              .setColor("#6DD5FA")
+              .setTitle("MCWonderLand")
+              .setAuthor(
+                "Voto",
+                client.user.avatarURL(),
+                "http://voto.mcwonderland.net/"
+              )
+              .setDescription(
+                "Al momento de votar por el servidor podras obtener una llave plateada dentro del servidor, esto es como muestra de agradecimiento por haber votado. \nDespues de haber votado en la pagina dentro del servidor deberas de ejecutar el comando ``/voto40`` para reclamar tu"
+              )
+              .addField("Pagina", "http://voto.mcwonderland.net/");
+
+              msg.channel.send(shop_msg);
+
+              break;
     }
 
 
