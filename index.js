@@ -110,7 +110,7 @@ client.on('message', async msg => {
                 "http://voto.mcwonderland.net/"
               )
               .setDescription(
-                "Al momento de votar por el servidor podras obtener una llave plateada dentro del servidor, esto es como muestra de agradecimiento por haber votado. \nDespues de haber votado en la pagina dentro del servidor deberas de ejecutar el comando ``/voto40`` para reclamar tu"
+                "Al momento de votar por el servidor podras obtener una llave plateada dentro del servidor, esto es como muestra de agradecimiento por haber votado. \n \nDespues de haber votado en la pagina dentro del servidor deberas de ejecutar el comando ``/voto40`` para reclamar tu"
               )
               .addField("Pagina", "http://voto.mcwonderland.net/");
 
