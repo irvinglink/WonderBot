@@ -101,7 +101,7 @@ client.on('message', async msg => {
           case "voto":
           case "votar":
 
-            const shop_msg = new MessageEmbed()
+            const vote_msg = new MessageEmbed()
               .setColor("#6DD5FA")
               .setTitle("MCWonderLand")
               .setAuthor(
@@ -114,7 +114,7 @@ client.on('message', async msg => {
               )
               .addField("Pagina", "http://voto.mcwonderland.net/");
 
-              msg.channel.send(shop_msg);
+              msg.channel.send(vote_msg);
 
               break;
     }
