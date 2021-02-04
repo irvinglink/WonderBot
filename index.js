@@ -28,8 +28,6 @@ client.on("ready", () => {
 
     console.log("Server Status is online");
 
-    console.log(response);
-
   }).catch((error) => {
 
     console.log("Server Status is offline");
