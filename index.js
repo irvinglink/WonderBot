@@ -119,7 +119,7 @@ client.on('message', async msg => {
               break;
 
           case "suicide":
-            const suicide_msg = new MessageEmbed().setColor("#FF4B2B").setTitle("MCWonderLand").setAuthor(msg.member.name, msg.member.avatarURL()).setDescription(msg.member.name + " se ha suicidado!")
+            const suicide_msg = new MessageEmbed().setColor("#FF4B2B").setTitle("MCWonderLand").setAuthor(msg.member.name, msg.member.user.avatarURL()).setDescription(msg.member.name + " se ha suicidado!")
             msg.channel.send(suicide_msg)
             break;
 
